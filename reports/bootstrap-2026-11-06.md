@@ -21,3 +21,11 @@
 分岐数の拡張、型・範囲・未知キー・重複キー拒否、非実験状態表示、相対リンク、Git除外、読み取り専用CIを確認した。
 
 ライセンスは未設定のまま維持。重み、過去実験ZIP、非公開データ、認証情報は含めていない。
+
+## GitHub側の確認
+
+初期コードcommit `3237c7a372019689bb419c0296f9c0be053054ab` のtreeは `1e7d43814459fd7b547ecd097e3c28230267ae09`。ローカル検証済みtreeと一致した。
+
+[GitHub Actions run 42107248271](https://github.com/Unjuno/adaptive-depth-token-mixer/actions/runs/42107248271) はSUCCESS。Python 3.11・3.13の両jobで、通常の依存インストール、pytest、設定CLIが成功したことをAPIで確認した。ローカルの依存ダウンロード制限とは区別する。この確認は上記commitを対象とする。
+
+実験00〜03はIssue #1〜#4へ分割済み。未実施の状態を維持する。

@@ -13,3 +13,12 @@
 `shared_transformer.py` は下位層、`shared_kv.py` は共通メモリ所有権、`branches.py` は独立経路、`router.py` は実行前選択、`model.py` は統合APIを担当する。データ生成・計測・学習コードはそれぞれ分離し、空の関数を動作済みと扱わない。
 
 最初の実装単位は**学習なしの実験00**。構造テストが通るまでは学習・Router最適化に着手しない。高性能GPU、巨大データ、外部サービス、認証キーは初期実証の前提にしない。
+
+## 実装Issue
+
+| 順序 | Issue | 前提 |
+| --- | --- | --- |
+| 00 | [#1 共有KV・切替整合性](https://github.com/Unjuno/adaptive-depth-token-mixer/issues/1) | 学習不要 |
+| 01 | [#2 データ分割・深い経路](https://github.com/Unjuno/adaptive-depth-token-mixer/issues/2) | #1 PASS |
+| 02 | [#3 浅い・中間分岐](https://github.com/Unjuno/adaptive-depth-token-mixer/issues/3) | #2の品質基準達成 |
+| 03 | [#4 Router・品質速度比較](https://github.com/Unjuno/adaptive-depth-token-mixer/issues/4) | #1〜#3完了 |
