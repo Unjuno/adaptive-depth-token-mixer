@@ -1,0 +1,53 @@
+# Planned experiment protocol, not a record of completed experiments.
+protocol_version: "0.1"
+model:
+  shared_layers: 2
+  branch_depths: [2, 4, 6]
+  hidden_size: 64
+  num_heads: 4
+  ffn_dim: 128
+  vocab_size: 64
+  max_seq_len: 64
+runtime:
+  device: cpu
+  dtype: float32
+  attention_backend: sdpa_math
+  intraop_threads: 2
+  decode_batch_size: 1
+  # Hardware, clock, library versions and backend must also be recorded at runtime.
+data:
+  tasks: [copy, lookup, two_hop]
+  queries_per_sequence: 6
+  split_unit: permutation_table
+  min_test_sequences: 1000
+seeds:
+  pilot: [11]
+  confirmation: [23, 37]
+training:
+  optimizer: AdamW
+  learning_rate: 0.0003
+  batch_size: 64
+  deep_max_updates: 3000
+  branch_max_updates: 1500
+  router_max_updates: 500
+  evaluation_interval: 200
+  distillation_temperature: 2.0
+  ce_weight: 0.5
+  kl_weight: 0.5
+structural_checks:
+  min_branch_switches: 1000
+  logits_atol: 0.0001
+  logits_rtol: 0.0
+acceptance:
+  deep_accuracy_each_task: 0.90
+  quality_margin_percentage_points: 2.0
+  minimum_speedup: 1.10
+  confidence_level: 0.95
+benchmark:
+  warmup_runs: 30
+  min_sequences: 200
+  repetitions: 5
+  include_prefill: true
+  include_router: true
+  include_head: true
+  include_kv_update: true

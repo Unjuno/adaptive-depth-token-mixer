@@ -1,0 +1,27 @@
+name: Experiment or implementation task
+description: 実験段階・仮説・合否条件・証拠を明確にする
+body:
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Stage
+      options:
+        - '00: KV consistency'
+        - '01: Deep path training'
+        - '02: Branch training'
+        - '03: Routing and benchmark'
+        - 'Repository maintenance'
+    validations:
+      required: true
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Hypothesis and acceptance criteria
+      description: 測度・閾値・環境・停止条件を記載する
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Commands, evidence and limitations
+      description: 未実施はNOT_RUNと記載。実行済みはcommit・設定・環境・結果を添付
