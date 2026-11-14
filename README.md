@@ -3,7 +3,7 @@
 共有KV型・多分岐Transformerの最小実証リポジトリ。
 共有2層の上に独立した追加2・4・6層の経路を置き、同じ履歴メモリを読みながらトークン単位で経路を選ぶ構想を検証する。3分岐は既定例であり、分岐数は固定しない。
 
-**現在は研究用の初期構成です。モデル・学習・高速化実験は未実装／未実施です。**
+**このGitHubリポジトリは研究用の初期構成です。モデル・学習・高速化の実験コードは未統合です。** コンテナで実行した探索実験の結果は [研究進捗](docs/research-progress.md) に別記しています。
 設定検査やCIの成功は、共有KV方式の成立・生成品質・高速化の証拠ではありません。
 
 ## 現在の状態
@@ -56,12 +56,12 @@ src/token_mixer/         Pythonパッケージ。現在は設定検査のみ
 experiments/             実験00〜03の実装予定と実行契約
 tests/                  設定・CLI検査（モデル試験とは別）
 docs/                    アーキテクチャ・実験計画・再現手順
-results/                 監査済み集計結果の置き場。現在は結果なし
+results/                 監査済み集計結果の置き場。現在はGitHub内の再現可能な結果なし
 reports/                 実行・検証レポート
 .github/                 CI、実験Issue、PRテンプレート
 ```
 
-## 読む順序
+## コンテナ実験の進捗\n\n2026-11-06〜09の共有上位層・2層反復・漸化式・mod-6段階学習の探索結果を [docs/research-progress.md](docs/research-progress.md) に記録しました。**これらはリポジトリCIで再実行できる状態ではありません。**\n\n## 読む順序
 
 [アーキテクチャ](docs/architecture.md) → [最小実験計画](docs/experiment-plan.md) → [実装順序](docs/roadmap.md) → [再現・計測規約](docs/reproducibility.md)。
 開発時は [CONTRIBUTING.md](CONTRIBUTING.md) と [AGENTS.md](AGENTS.md) を参照。
